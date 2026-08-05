@@ -5,21 +5,28 @@ let num4 = 153;
 let num5 = 28;
 
 let numbersToTest = [num1, num2, num3, num4, num5];
+let outputElement = document.getElementById("output");
+
+function printLine(text) {
+  console.log(text);
+  outputElement.textContent += text + "\n";
+}
 
 let sumN = 0;
-for (let i = 0; i <= num1; i++) {
+for (let i = 1; i <= num1; i++) {
   sumN += i;
 }
-console.log("Sum of first " + num1 + " numbers: " + sumN);
+printLine("Sum of first " + num1 + " numbers: " + sumN);
 
-console.log("Table of " + num2 + ":");
+printLine("Table of " + num2 + ":");
 for (let i = 1; i <= 10; i++) {
-  console.log(num2 + " x " + i + " = " + num2 * i);
+  printLine(num2 + " x " + i + " = " + num2 * i);
 }
+
 for (let k = 0; k < numbersToTest.length; k++) {
   let currentNum = numbersToTest[k];
 
-  console.log("Ex - Number :- " + currentNum);
+  printLine("Ex - Number :- " + currentNum);
 
   let tempSum = currentNum;
   let digitSum = 0;
@@ -27,7 +34,7 @@ for (let k = 0; k < numbersToTest.length; k++) {
     digitSum += tempSum % 10;
     tempSum = Math.floor(tempSum / 10);
   }
-  console.log("Sum of its digits: " + digitSum);
+  printLine("Sum of its digits: " + digitSum);
 
   let tempArm = currentNum;
   let armSum = 0;
@@ -37,7 +44,7 @@ for (let k = 0; k < numbersToTest.length; k++) {
     tempArm = Math.floor(tempArm / 10);
   }
   let isArmstrong = armSum === currentNum ? "Yes" : "No";
-  console.log("Is it an Armstrong number? " + isArmstrong);
+  printLine("Is it an Armstrong number? " + isArmstrong);
 
   let isPrime = currentNum > 1;
   for (let i = 2; i <= Math.sqrt(currentNum); i++) {
@@ -47,7 +54,7 @@ for (let k = 0; k < numbersToTest.length; k++) {
     }
   }
   let primeResult = isPrime ? "Yes" : "No";
-  console.log("Is it a prime number? " + primeResult);
+  printLine("Is it a prime number? " + primeResult);
 
   let factors = [];
   for (let i = 1; i <= currentNum; i++) {
@@ -55,6 +62,6 @@ for (let k = 0; k < numbersToTest.length; k++) {
       factors.push(i);
     }
   }
-  console.log("Factors: " + factors.join(", "));
-  console.log("-----------------------------------");
+  printLine("Factors: " + factors.join(", "));
+  printLine("-----------------------------------");
 }
